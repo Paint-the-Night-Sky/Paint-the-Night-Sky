@@ -3,7 +3,9 @@ const app = express();
 const path = require('path')
 const cors = require('cors')
 
-const router = require('/routers/api')
+const PORT = 3000;
+
+const router = require('./routers/api')
 
 app.use(cors());
 app.use(express.json())
@@ -13,6 +15,7 @@ app.use(express.json())
 app.use('/api', router);
 
 app.get('/', (req, res)=> {
+    console.log('hi')
     res.status(200).json(res.locals.starChart);
 })
 
