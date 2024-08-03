@@ -1,3 +1,50 @@
 h1 {
     color: red;
   }
+  body {
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    background-image: url('./assets/background.jpg'); //sampling background route 
+  }
+  
+  
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: cyan;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex: 1; /* Take up remaining height after navbar */
+}
+
+.sidebar {
+  background-color: green;
+  width: 250px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.mainbox {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: blue;
+}
+
+.bubble {
+  background-color: black;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  // box-shadow 
+}
