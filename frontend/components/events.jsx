@@ -12,17 +12,18 @@ const Events = () => {
             try{ 
                 console.log('testing')
                 const response = await fetch('http://localhost:3000/api/events', {
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ lat, long }),
+                    // body: JSON.stringify({ lat, long }),
                 });
                 if (!response.ok) {
                     throw new Error('Network response is not ok')
                 }
                 const data = await response.json();
-                setEvents(data);
+                setEvents([data]);
+                console.log('anything');
             } catch (error) {
                 console.log(error);
             }

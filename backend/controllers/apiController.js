@@ -139,6 +139,7 @@ const apiController = {
     try {
       let response = await fetch(
         `https://api.meteomatics.com/${currentDate}/meteor_showers_perseids_visibility:idx/56,-10_36,20:0.05,0.05/png?source=mix`,
+        
         {
           method: 'POST',
           headers: {
@@ -169,14 +170,29 @@ const apiController = {
     let currentDate = `${year}-${month}-${day}`;
     let monthAway = `${year}-${month + 1}-${day}`;
     try {
-      let response = await fetch(
-        `https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
-      );
-      const responseInfo = [
-        response.data.rows[0].body,
-        response.data.rows[0].events,
-      ];
-      res.locals.eventsData = responseInfo.json();
+        console.log('test within events data')
+      let response = await fetch(`https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
+        ,
+        {
+          method: 'GET',
+          headers: {
+            'Authorization':
+              'Basic ODJkYTk1NzAtZjY5MC00NzhkLThhYjUtODgxNjAwYjg3Y2UxOjY5NDc5YmU4OGVkOTA0YzAzNDY3MzFkNDAxODJhM2Y1NGU3MzE5NmQ2Zjk5NTBjYjgyYjc0NWQxNzVkYzMwMzk0MDJjMjBhNjRhNTgyYzhjMTc4ZTQzZTFmNTMxOWNjZDkwYzExN2NlYmM0YmM0MzUwZDlmODdjOTZiM2Q5Y2EyZWZmMmYxMDI0ZjQwOWJmMWZlNjdiYzU5YzAyZjA5YTczNjdiYmIyZGQ4ZDkwM2YxY2UxMjZhOGMwNmM1YmMwMGRjZjAxYzYxY2I4MTI0OTA2ZmNlMTdhYmNhNjczNGFj',
+          },
+          redirect: 'follow'
+        });
+      console.log('logging response: ', response);
+      // console.log('error after attempt fetch')
+      //        `https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
+//https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=40.7128&longitude=-70.0060&elevation=100&from_date=2024-08-05&to_date=2024-09-05&time=12:00:00&output=table'
+    //   const responseInfo = [
+    //     response.data.rows[0].body,
+    //     response.data.rows[0].events,
+    //   ];
+    const data = await response.text();
+    console.log('data:', data);
+    res.locals.eventsData = data;
+    //   res.locals.eventsData = responseInfo.json();
       return next();
     } catch (error) {
       return next({
