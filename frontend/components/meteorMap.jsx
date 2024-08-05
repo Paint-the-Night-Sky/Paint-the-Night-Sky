@@ -5,7 +5,7 @@ const MeteorMap = (props) => {
   const [meteor, setMeteor] = useState('');
 
   const handleSelect = async (val) => {
-    fetch('http:www.localhost:3000', {
+    fetch('http:www.localhost:3000/api/meteorData', {
       'Content-Type': 'application/json',
     });
   };
@@ -13,9 +13,10 @@ const MeteorMap = (props) => {
   return (
     <div className="meteormap">
       <h3>MeteorMap</h3>
-      <label>Choose Meteor Shower</label>
+      <label>Select Meteor Shower</label>
       <select
-        name="meteor-shower-menu"
+        className="meteor-shower-menu"
+        name="Select Meteor"
         onSelect={(e) => {
           setMeteor(e.target.value);
           handleSelect(meteor);
