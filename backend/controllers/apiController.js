@@ -1,5 +1,6 @@
 const db = require('../data/model');
 
+let date = new Date();
 const apiController = {
   async starChartData(req, res, next) {
     let lat = req.body.lat;
@@ -123,7 +124,6 @@ const apiController = {
     let minLat = lat - 20;
     let long = req.body.long;
     let minLong = long - 20;
-    const date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();

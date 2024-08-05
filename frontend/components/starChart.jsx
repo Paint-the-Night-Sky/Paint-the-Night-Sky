@@ -18,7 +18,7 @@ const StarChart = (props) => {
           }),
         });
         const data = await response.json();
-          setImageUrl(data.data.imageUrl);
+        setImageUrl(data.data.imageUrl);
       } catch (err) {
         console.error('Fetch error:', err);
       }
@@ -30,7 +30,7 @@ const StarChart = (props) => {
   return (
     <div className="starchart">
       <h3>Star Chart</h3>
-          <img src={imageUrl} alt="Star Chart" />
+      <img src={imageUrl} alt="Star Chart" />
     </div>
   );
 };
