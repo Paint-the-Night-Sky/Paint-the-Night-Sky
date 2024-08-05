@@ -21,9 +21,12 @@ const Events = () => {
                 if (!response.ok) {
                     throw new Error('Network response is not ok')
                 }
-                const data = await response.json();
-                setEvents([data]);
-                console.log('anything');
+                let jsonResponse = await response.json();
+
+                console.log(jsonResponse);
+                setEvents([jsonResponse.data.table.rows[0].cells[0]]);
+
+                
             } catch (error) {
                 console.log(error);
             }

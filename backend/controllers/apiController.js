@@ -160,17 +160,19 @@ const apiController = {
   },
 
   async eventsData(req, res, next) {
-    let lat = req.body.lat;
-    let long = req.body.long;
-    let day = date.getDate().toString().length < 2 ? `0${date.getDate()}` : date.getDate();
-    console.log(day)
-    // let month = date.getMonth() + 1;
-    let month = date.getMonth().toString().length < 2 ? `0${date.getMonth()+1}` : date.getMonth()+1;
+    let lat = '40.7128';
+    let long = '-74.0060';
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
     let year = date.getFullYear();
-    let currentDate = `${year}-${month}-${day}`;
-    let monthAway = `${year}-${month + 1}-${day}`;
+    let currentDate = `${year}-0${month}-0${day}`;
+    let monthAway = `${year}-0${month+1}-0${day}`;
+    console.log(currentDate);
+    console.log(monthAway);
+
     try {
         console.log('test within events data')
+      // let response = await fetch(`https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
       let response = await fetch(`https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
         ,
         {
@@ -184,21 +186,23 @@ const apiController = {
       console.log('logging response: ', response);
       // console.log('error after attempt fetch')
       //        `https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
-//https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=40.7128&longitude=-70.0060&elevation=100&from_date=2024-08-05&to_date=2024-09-05&time=12:00:00&output=table'
+// https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=40.7128&longitude=-70.0060&elevation=100&from_date=2024-08-05&to_date=2024-09-05&time=12:00:00&output=table'
     //   const responseInfo = [
     //     response.data.rows[0].body,
     //     response.data.rows[0].events,
     //   ];
-    const data = await response.text();
+    let data = await response.text();
     console.log('data:', data);
-    res.locals.eventsData = data;
+    console.log(JSON.parse(data));
+    res.locals.eventsData = JSON.parse(data);
     //   res.locals.eventsData = responseInfo.json();
       return next();
     } catch (error) {
+      console.log(error);
       return next({
         log: 'Error in eventstData',
         status: 500,
-        message: { err: 'An error occured in eventsData' },
+        message: { err: `An error occured in eventsData` },
       });
     }
   },
