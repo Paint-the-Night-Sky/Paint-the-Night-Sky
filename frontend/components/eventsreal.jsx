@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Events = () => {
+const EventsReal = () => {
     
     const [events, setEvents] = useState([]);
 
@@ -35,7 +35,7 @@ const Events = () => {
     }, []);
 
     return (
-        <div className="events">
+        <div className="eventsreal">
           <h3>Events</h3>
           <ul>
             {events.map((event, index) => (
@@ -46,4 +46,4 @@ const Events = () => {
       );
     };
 
-export default Events;
+export default EventsReal;
