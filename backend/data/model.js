@@ -1,4 +1,4 @@
-const { Pool } = requiew('pg');
+const { Pool } = require('pg');
 
 const pool = new Pool({
   connectionString:

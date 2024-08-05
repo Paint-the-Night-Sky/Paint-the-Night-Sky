@@ -6,9 +6,9 @@ import './App.scss';
 
 const App = () => (
   <div className="main-container">
-    <div className="navbar">
+    {/* <div className="navbar"> */}
       <NavBar />
-    </div>
+    {/* </div> */}
     <div className="content">
       <div className="sidebar">
         <SideBar />
