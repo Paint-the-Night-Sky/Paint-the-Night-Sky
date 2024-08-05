@@ -17,12 +17,24 @@ body {
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.4); 
   color: #ffffff;
-  padding: 10px;
+  padding: 2rem;
   text-align: center;
   font-size: 1.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  padding: 3rem;
+  cursor: pointer;
+}
+
+.welcomeuser, .settings, .logout{
+  cursor: pointer;
 }
 
 .content {

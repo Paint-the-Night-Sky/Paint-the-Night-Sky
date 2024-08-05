@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Settings = () => {
+const Settings = (props) => {
     return (
-    <div className="settings">
-        <h3>Settings</h3>
+    <div className="settings" onClick={props.settingsClick}>
+        <h5>Settings</h5>
     </div>
     )
 }
