@@ -1,14 +1,15 @@
-h1 {
-    color: red;
-  }
-  body {
-    margin: 0;
-    color: white;
-    font-family: Arial, sans-serif;
-    background-image: url('./assets/background.jpg'); //sampling background route 
-  }
-  
-  
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); 
+
+body {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -16,35 +17,38 @@ h1 {
 }
 
 .navbar {
-  background-color: cyan;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: #ffffff;
   padding: 10px;
   text-align: center;
+  font-size: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .content {
   display: flex;
-  flex: 1; /* Take up remaining height after navbar */
+  flex: 1;
 }
 
 .sidebar {
-  background-color: green;
+  background-color: rgba(17, 16, 16, 0.7);
   width: 250px;
   padding: 16px;
   box-sizing: border-box;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .mainbox {
   flex: 1;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
-  background-color: blue;
+  overflow-y: auto;
 }
 
 .bubble {
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
   padding: 20px;
-  margin-bottom: 10px;
-  // box-shadow 
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
