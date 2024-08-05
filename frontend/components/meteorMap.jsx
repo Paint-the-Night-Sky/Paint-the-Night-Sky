@@ -7,7 +7,7 @@ const MeteorMap = (props) => {
 
   const handleSelect = async (val) => {
     try {
-      const response = fetch('http:www.localhost:3000/api/meteorData', {
+      const response = await fetch('http:www.localhost:3000/api/meteorData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
