@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-body {
+html, body {
   margin: 0;
+  height: 100%;
   color: #ffffff;
   font-family: 'Orbitron', sans-serif;
   background-image: url('./assets/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-size: 16px; 
 }
 
@@ -58,7 +60,7 @@ body {
 }
 
 .bubble {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(71, 69, 69, 0.8);
   border-radius: 0.9375rem;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -78,4 +80,58 @@ body {
   height: auto;
   border: 0.3125rem solid rgb(131, 127, 127);
   border-radius: 0.625rem;
+}
+
+.starchart img {
+  max-width: 100%;
+  height: auto;
+  border: 0.3125rem solid rgb(131, 127, 127);
+  border-radius: 0.625rem;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0.9375rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  margin: 1rem;
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+  }
+
+  .location-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }
+
+  .location-submit {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.3125rem;
+    background-color: #5c5d5f;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #515151;
+    }
+  }
 }
