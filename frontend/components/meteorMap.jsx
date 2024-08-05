@@ -31,7 +31,7 @@ const MeteorMap = (props) => {
   return (
     <div className="meteormap">
       <h3>MeteorMap</h3>
-      <label>Select Meteor Shower</label>
+      <label className="meteormap-label">Select Meteor Shower </label>
       <select
         className="meteor-map-menu"
         name="Select Meteor"
@@ -46,7 +46,12 @@ const MeteorMap = (props) => {
         <option value="eta_aquariids">Eta Aquariids</option>
       </select>
       <div className="meteor-map-container">
-        <img src={'https://www.meteomatics.com/cms-image-resizer?src=9_Documentation-Assets%2Fmeteor_shower_visibility_example.png&q=75&w=1920'} alt="Meteor Map"></img>
+        <img
+          src={
+            'https://www.meteomatics.com/cms-image-resizer?src=9_Documentation-Assets%2Fmeteor_shower_visibility_example.png&q=75&w=1920'
+          }
+          alt="Meteor Map"
+        ></img>
       </div>
     </div>
   );
