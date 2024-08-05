@@ -2,7 +2,7 @@ import React from 'react';
 import Satellite from './satellite';
 import MoonPhase from './moonPhase';
 import Events from './events';
-
+import EventsReal from './eventsreal';
 const sideBar = () => (
   <div className="sidebar">
     <div className="bubble">
@@ -13,6 +13,9 @@ const sideBar = () => (
     </div>
     <div className="bubble">
     <Events />
+    </div>
+    <div className="bubble">
+    <EventsReal />
     </div>
     </div>
 );
