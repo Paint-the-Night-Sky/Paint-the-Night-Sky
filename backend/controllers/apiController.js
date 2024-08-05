@@ -26,7 +26,11 @@ const apiController = {
             });
             response = await response.json();
             res.locals.starChart = response;
-            return next()
+            return next({
+                log: 'Error in starChartData',
+                status: 500,
+                message: { err: 'An error occured'}
+            })
         }
         catch(err) {
             return next()
@@ -67,7 +71,11 @@ const apiController = {
             return next();
         } 
         catch(err) {
-            return next()
+            return next({
+                log: 'Error in moonChartData',
+                status: 500,
+                message: { err: 'An error occured'}
+            })
         }
     }
 }
