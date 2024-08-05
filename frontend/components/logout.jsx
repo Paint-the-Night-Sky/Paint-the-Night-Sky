@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Logout = () => {
+const Logout = (props) => {
     return (
-        <div className="logout">
-            <h3>Logout</h3>
+        <div className="logout" onClick={props.logoutClick}>
+            
+            <h5>Logout</h5>
         </div>
     )
 }
