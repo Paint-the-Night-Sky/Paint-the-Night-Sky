@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Title = () => {
+const Title = (props) => {
     return (
-        <div className="title">
-            <h1>Hello React This is the title </h1>
-            </div>
-            )
+        <div className="title" onClick={props.titleClick}>
+            <h1>Paint The Night Sky</h1>
+        </div>
+    )
 };
 
 export default Title;
