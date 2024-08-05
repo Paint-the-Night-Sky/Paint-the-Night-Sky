@@ -1,8 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import "./App.scss";
+/**
+ * ************************************
+ *
+ * @module  index.js
+ * @author
+ * @date
+ * @description entry point for application
+ *
+ * ************************************
+ */
 
-const el = document.getElementById("app");
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import App from './App.jsx';
+import './App.scss';
+import store from './store';
 
-ReactDOM.render(<App />, el);
+const root = createRoot(document.getElementById('app'));
+
+root.render(
+    // wrap the App in the Provider Component and pass in the store
+    <Provider store={store}><App /></Provider>
+  );
