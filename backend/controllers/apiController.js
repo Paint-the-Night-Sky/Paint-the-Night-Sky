@@ -5,10 +5,13 @@ const apiController = {
   async starChartData(req, res, next) {
     let lat = req.body.lat;
     let long = req.body.long;
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = date.getDate().toString().length < 2 ? `0${date.getDate()}` : date.getDate();
+    console.log(day)
+    // let month = date.getMonth() + 1;
+    let month = date.getMonth().toString().length < 2 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     let year = date.getFullYear();
-    let currentDate = `${day}-${month}-${year}`;
+    let currentDate = `${year-5}-${month}-${day}`;
+    console.log('currentDateStar', currentDate)
     try {
       let response = await fetch(
         'https://api.astronomyapi.com/api/v2/studio/star-chart',
@@ -61,10 +64,13 @@ const apiController = {
   async moonChartData(req, res, next) {
     let lat = req.body.lat;
     let long = req.body.long;
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = date.getDate().toString().length < 2 ? `0${date.getDate()}` : date.getDate();
+    console.log(day)
+    // let month = date.getMonth() + 1;
+    let month = date.getMonth().toString().length < 2 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     let year = date.getFullYear();
-    let currentDate = `${day}-${month}-${year}`;
+    let currentDate = `${year}-${month}-${day}`;
+    console.log('currentDatemoon', currentDate)
     try {
       let response = await fetch(
         'https://api.astronomyapi.com/api/v2/studio/moon-phase',
@@ -124,10 +130,12 @@ const apiController = {
     let minLat = lat - 20;
     let long = req.body.long;
     let minLong = long - 20;
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = date.getDate().toString().length < 2 ? `0${date.getDate()}` : date.getDate();
+    console.log(day)
+    // let month = date.getMonth() + 1;
+    let month = date.getMonth().toString().length < 2 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     let year = date.getFullYear();
-    let currentDate = `${day}-${month}-${year}`;
+    let currentDate = `${year}-${month}-${day}`;
     try {
       let response = await fetch(
         `https://api.meteomatics.com/${currentDate}/meteor_showers_perseids_visibility:idx/56,-10_36,20:0.05,0.05/png?source=mix`,
@@ -153,11 +161,13 @@ const apiController = {
   async eventsData(req, res, next) {
     let lat = req.body.lat;
     let long = req.body.long;
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = date.getDate().toString().length < 2 ? `0${date.getDate()}` : date.getDate();
+    console.log(day)
+    // let month = date.getMonth() + 1;
+    let month = date.getMonth().toString().length < 2 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     let year = date.getFullYear();
-    let currentDate = `${day}-${month}-${year}`;
-    let monthAway = `${day}-${month + 1}-${year}`;
+    let currentDate = `${year}-${month}-${day}`;
+    let monthAway = `${year}-${month + 1}-${day}`;
     try {
       let response = await fetch(
         `https://api.astronomyapi.com/api/v2/bodies/events/sun?latitude=${lat}&longitude=${long}&elevation=100&from_date=${currentDate}&to_date=${monthAway}&time=12:00:00&output=table`
