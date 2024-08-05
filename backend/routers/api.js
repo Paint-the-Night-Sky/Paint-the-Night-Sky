@@ -14,6 +14,18 @@ router.post('/starChart', apiController.starChartData, (req, res) => {
 
 
 /starchart 
+router.post('/moonChart', apiController.moonChartData, (req, res) => {
+  res.status(200).json(res.locals.moonChart);
+});
+
+router.get('/events', apiController.eventsData, (req, res) => {
+  res.status(200).json(res.locals.eventsData);
+});
+
+router.post('/meteorData', apiController.eventsData, (req, res) => {
+  res.status(200).json(res.locals.meteorData);
+});
+/*  
 
 /moonphase
 
