@@ -12,6 +12,12 @@ app.use(express.json())
 
 // add static code to serve html
 
+app.use(express.static(path.resolve(__dirname, '../frontend')))
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend', 'index.html'));
+});
+
 app.use('/api', router);
 
 app.get('/', (req, res)=> {
