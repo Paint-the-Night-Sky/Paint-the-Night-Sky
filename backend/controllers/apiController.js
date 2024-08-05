@@ -40,18 +40,18 @@ const apiController = {
       );
       response = await response.json();
       res.locals.starChart = response;
-      // const queryText = `INSERT INTO public.Responses (requestType, longitude, latitude, response)
-      // VALUES ($1, $2, $3, $4)`;
-      // const queryValues = [
-      //   // req.body.date,
-      //   'Star Chart',
-      //   req.body.long,
-      //   req.body.lat,
-      //   response,
-      // ];
-      // const data = await db.query(queryText, queryValues);
-      // console.log(data);
-      // res.locals.dbSent = data;
+      const queryText = `INSERT INTO public."Responses" (requesttype, longitude, latitude, response)
+      VALUES ($1, $2, $3, $4)`;
+      const queryValues = [
+        // req.body.date,
+        'Star Chart',
+        req.body.long,
+        req.body.lat,
+        response,
+      ];
+      const data = await db.query(queryText, queryValues);
+      console.log(data);
+      res.locals.dbSent = data;
       return next();
     } catch (err) {
       return next({
@@ -104,18 +104,18 @@ const apiController = {
       );
       response = await response.json();
       res.locals.moonChart = response;
-      // const queryText = `INSERT INTO public.Responses (requestType, longitude, latitude, response)
-      // VALUES ($1, $2, $3, $4)`;
-      // const queryValues = [
-      //   // req.body.date,
-      //   'Moon Chart',
-      //   req.body.long,
-      //   req.body.lat,
-      //   response,
-      // ];
-      // const data = await db.query(queryText, queryValues);
-      // console.log(data);
-      // res.locals.dbSent = data;
+      const queryText = `INSERT INTO public."Responses" (requesttype, longitude, latitude, response)
+      VALUES ($1, $2, $3, $4)`;
+      const queryValues = [
+        // req.body.date,
+        'Moon Chart',
+        req.body.long,
+        req.body.lat,
+        response,
+      ];
+      const data = await db.query(queryText, queryValues);
+      console.log(data);
+      res.locals.dbSent = data;
       return next();
     } catch (err) {
       return next({
